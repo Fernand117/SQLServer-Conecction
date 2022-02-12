@@ -32,7 +32,7 @@ namespace ConnectionSqlServer.Controllers
         {
             builder = new SqlConnectionStringBuilder()
             {
-                DataSource = ".",
+                DataSource = "DESKTOP-0KJV438\\SQLEXPRESS",
                 InitialCatalog = "master",
                 IntegratedSecurity = true
             };

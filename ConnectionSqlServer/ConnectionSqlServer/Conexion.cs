@@ -1,6 +1,7 @@
 ﻿using ConnectionSqlServer.Controllers;
 using ConnectionSqlServer.Models;
 using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace ConnectionSqlServer
@@ -9,6 +10,7 @@ namespace ConnectionSqlServer
     {
         private ConnectionModel connectionModel;
         private ConexionController conexionController;
+        private SqlConnectionStringBuilder builder;
 
         public Conexion()
         {
@@ -47,7 +49,7 @@ namespace ConnectionSqlServer
 
             if (RbtnWA.Checked)
             {
-                conexionController.ConexionSQLWinAuth();
+                builder = conexionController.ConexionSQLWinAuth();
             }
 
             if (RbtnA.Checked)
@@ -58,7 +60,21 @@ namespace ConnectionSqlServer
                 connectionModel.usuario  = txtUsuario.Text;
                 connectionModel.password = txtPassword.Text;
                 
-                conexionController.ConexionSQLAuth(connectionModel);
+                builder = conexionController.ConexionSQLAuth(connectionModel);
+                MessageBox.Show(builder.ToString());
+            }
+
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MessageBox.Show("Conexion establecida");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
