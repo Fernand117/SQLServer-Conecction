@@ -1,20 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConnectionSqlServer.Controllers;
+using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace ConnectionSqlServer
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
+        private BackupController backupController;
+        private SqlConnectionStringBuilder builder;
+
+        public Dashboard(SqlConnectionStringBuilder getConnection)
         {
             InitializeComponent();
+            builder = getConnection;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dlg = new FolderBrowserDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                txtRuta.Text = dlg.SelectedPath;
+            }
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            backupController = new BackupController();
+            string result = backupController.Backup(txtRuta.Text, builder);
+            MessageBox.Show(result);
+        }
+
+        private void btnBuscarBack_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Filter = "SQL Server Databases backup files|*.back";
+            dlg.Title = "Database restore";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                txtRutaRestore.Text = dlg.FileName;
+            }
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            backupController = new BackupController();
+            string result = backupController.Restore(txtRuta.Text, builder);
+            MessageBox.Show(result);
         }
     }
 }

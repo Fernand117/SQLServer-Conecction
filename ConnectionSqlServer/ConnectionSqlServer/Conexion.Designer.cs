@@ -33,8 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtHost = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtPuerto = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,7 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(122, 9);
+            this.label1.Location = new System.Drawing.Point(126, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 13);
             this.label1.TabIndex = 2;
@@ -76,7 +74,7 @@
             // 
             // txtHost
             // 
-            this.txtHost.Location = new System.Drawing.Point(12, 70);
+            this.txtHost.Location = new System.Drawing.Point(12, 94);
             this.txtHost.Name = "txtHost";
             this.txtHost.Size = new System.Drawing.Size(237, 20);
             this.txtHost.TabIndex = 3;
@@ -84,27 +82,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 54);
+            this.label2.Location = new System.Drawing.Point(12, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Host";
-            // 
-            // txtPuerto
-            // 
-            this.txtPuerto.Location = new System.Drawing.Point(255, 70);
-            this.txtPuerto.Name = "txtPuerto";
-            this.txtPuerto.Size = new System.Drawing.Size(100, 20);
-            this.txtPuerto.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(252, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Puerto";
             // 
             // txtUsuario
             // 
@@ -158,7 +140,7 @@
             // RbtnWA
             // 
             this.RbtnWA.AutoSize = true;
-            this.RbtnWA.Location = new System.Drawing.Point(13, 97);
+            this.RbtnWA.Location = new System.Drawing.Point(260, 74);
             this.RbtnWA.Name = "RbtnWA";
             this.RbtnWA.Size = new System.Drawing.Size(94, 17);
             this.RbtnWA.TabIndex = 13;
@@ -170,7 +152,7 @@
             // RbtnA
             // 
             this.RbtnA.AutoSize = true;
-            this.RbtnA.Location = new System.Drawing.Point(308, 97);
+            this.RbtnA.Location = new System.Drawing.Point(260, 97);
             this.RbtnA.Name = "RbtnA";
             this.RbtnA.Size = new System.Drawing.Size(47, 17);
             this.RbtnA.TabIndex = 14;
@@ -192,8 +174,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPuerto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtHost);
             this.Controls.Add(this.label1);
@@ -215,8 +195,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtHost;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPuerto;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

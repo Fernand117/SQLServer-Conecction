@@ -49,17 +49,19 @@ namespace ConnectionSqlServer
 
             if (RbtnWA.Checked)
             {
-                builder = conexionController.ConexionSQLWinAuth();
+                connectionModel.host = txtHost.Text;
+                connectionModel.dbname = txtDBName.Text;
+                builder = conexionController.ConexionSQLWinAuth(connectionModel);
+                MessageBox.Show(builder.ToString());
             }
 
             if (RbtnA.Checked)
             {
-                connectionModel.host     = txtHost.Text;
-                connectionModel.port     = txtPuerto.Text;
-                connectionModel.dbname   = txtDBName.Text;
-                connectionModel.usuario  = txtUsuario.Text;
+                connectionModel.host = txtHost.Text;
+                connectionModel.dbname = txtDBName.Text;
+                connectionModel.usuario = txtUsuario.Text;
                 connectionModel.password = txtPassword.Text;
-                
+
                 builder = conexionController.ConexionSQLAuth(connectionModel);
                 MessageBox.Show(builder.ToString());
             }
@@ -70,6 +72,9 @@ namespace ConnectionSqlServer
                 {
                     connection.Open();
                     MessageBox.Show("Conexion establecida");
+                    Dashboard dashboard = new Dashboard(builder);
+                    dashboard.Show();
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {

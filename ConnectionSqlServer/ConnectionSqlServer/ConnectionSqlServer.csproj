@@ -52,6 +52,7 @@
     <Compile Include="Conexion.Designer.cs">
       <DependentUpon>Conexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\BackupController.cs" />
     <Compile Include="Controllers\ConexionController.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>

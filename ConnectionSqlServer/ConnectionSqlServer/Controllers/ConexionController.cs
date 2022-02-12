@@ -1,10 +1,6 @@
 ﻿using ConnectionSqlServer.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConnectionSqlServer.Controllers
 {
@@ -28,12 +24,13 @@ namespace ConnectionSqlServer.Controllers
             return builder;
         }
 
-        public SqlConnectionStringBuilder ConexionSQLWinAuth()
+        public SqlConnectionStringBuilder ConexionSQLWinAuth(ConnectionModel getConnectionModel)
         {
+            connectionModel = getConnectionModel;
             builder = new SqlConnectionStringBuilder()
             {
-                DataSource = "DESKTOP-0KJV438\\SQLEXPRESS",
-                InitialCatalog = "master",
+                DataSource = connectionModel.host,
+                InitialCatalog = connectionModel.dbname,
                 IntegratedSecurity = true
             };
             builder.ApplicationName = "ConexionSQLServer";
