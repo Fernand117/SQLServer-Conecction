@@ -30,15 +30,17 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtRuta = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnBackup = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtRutaRestore = new System.Windows.Forms.TextBox();
-            this.btnBuscarBack = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtRuta = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtDbNameRestore = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnRestaurar = new System.Windows.Forms.Button();
+            this.btnBuscarBack = new System.Windows.Forms.Button();
+            this.txtRutaRestore = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -68,8 +70,46 @@
             this.tabPage1.Text = "Backup";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnBackup
+            // 
+            this.btnBackup.Location = new System.Drawing.Point(300, 152);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(123, 23);
+            this.btnBackup.TabIndex = 3;
+            this.btnBackup.Text = "Generar backup";
+            this.btnBackup.UseVisualStyleBackColor = true;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(348, 48);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // txtRuta
+            // 
+            this.txtRuta.Location = new System.Drawing.Point(6, 50);
+            this.txtRuta.Name = "txtRuta";
+            this.txtRuta.Size = new System.Drawing.Size(322, 20);
+            this.txtRuta.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Localización";
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtDbNameRestore);
+            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.btnRestaurar);
             this.tabPage2.Controls.Add(this.btnBuscarBack);
             this.tabPage2.Controls.Add(this.txtRutaRestore);
@@ -82,67 +122,21 @@
             this.tabPage2.Text = "Restore";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // txtDbNameRestore
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Localización";
+            this.txtDbNameRestore.Location = new System.Drawing.Point(7, 85);
+            this.txtDbNameRestore.Name = "txtDbNameRestore";
+            this.txtDbNameRestore.Size = new System.Drawing.Size(336, 20);
+            this.txtDbNameRestore.TabIndex = 5;
             // 
-            // txtRuta
+            // label3
             // 
-            this.txtRuta.Location = new System.Drawing.Point(6, 50);
-            this.txtRuta.Name = "txtRuta";
-            this.txtRuta.Size = new System.Drawing.Size(322, 20);
-            this.txtRuta.TabIndex = 1;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(348, 48);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnBackup
-            // 
-            this.btnBackup.Location = new System.Drawing.Point(300, 152);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(123, 23);
-            this.btnBackup.TabIndex = 3;
-            this.btnBackup.Text = "Generar backup";
-            this.btnBackup.UseVisualStyleBackColor = true;
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Ruta del archivo .back";
-            // 
-            // txtRutaRestore
-            // 
-            this.txtRutaRestore.Location = new System.Drawing.Point(7, 41);
-            this.txtRutaRestore.Name = "txtRutaRestore";
-            this.txtRutaRestore.Size = new System.Drawing.Size(336, 20);
-            this.txtRutaRestore.TabIndex = 1;
-            // 
-            // btnBuscarBack
-            // 
-            this.btnBuscarBack.Location = new System.Drawing.Point(349, 41);
-            this.btnBuscarBack.Name = "btnBuscarBack";
-            this.btnBuscarBack.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarBack.TabIndex = 2;
-            this.btnBuscarBack.Text = "Buscar";
-            this.btnBuscarBack.UseVisualStyleBackColor = true;
-            this.btnBuscarBack.Click += new System.EventHandler(this.btnBuscarBack_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(193, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Nombre de la base de datos a restaurar";
             // 
             // btnRestaurar
             // 
@@ -154,12 +148,40 @@
             this.btnRestaurar.UseVisualStyleBackColor = true;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
+            // btnBuscarBack
+            // 
+            this.btnBuscarBack.Location = new System.Drawing.Point(349, 41);
+            this.btnBuscarBack.Name = "btnBuscarBack";
+            this.btnBuscarBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarBack.TabIndex = 2;
+            this.btnBuscarBack.Text = "Buscar";
+            this.btnBuscarBack.UseVisualStyleBackColor = true;
+            this.btnBuscarBack.Click += new System.EventHandler(this.btnBuscarBack_Click);
+            // 
+            // txtRutaRestore
+            // 
+            this.txtRutaRestore.Location = new System.Drawing.Point(7, 41);
+            this.txtRutaRestore.Name = "txtRutaRestore";
+            this.txtRutaRestore.Size = new System.Drawing.Size(336, 20);
+            this.txtRutaRestore.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Ruta del archivo .back";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 232);
             this.Controls.Add(this.tabControl1);
+            this.MaximumSize = new System.Drawing.Size(479, 271);
+            this.MinimumSize = new System.Drawing.Size(479, 271);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.tabControl1.ResumeLayout(false);
@@ -184,5 +206,7 @@
         private System.Windows.Forms.Button btnBuscarBack;
         private System.Windows.Forms.TextBox txtRutaRestore;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDbNameRestore;
+        private System.Windows.Forms.Label label3;
     }
 }

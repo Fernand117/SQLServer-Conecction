@@ -13,7 +13,7 @@ namespace ConnectionSqlServer.Controllers
             string cmfarma = connection.Database.ToString();
             try
             {
-                string cmd = "BACKUP DATABASE [" + cmfarma + "] TO DISK ='" + ruta + "\\" + "cmfarma" + "-" + DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss") + ".back'";
+                string cmd = "BACKUP DATABASE [" + cmfarma + "] TO DISK ='" + ruta + "\\" + "cmfarma" + "-" + DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss") + ".bak' WITH CHECKSUM;";
                 using (SqlCommand command = new SqlCommand(cmd, connection))
                 {
                     if (connection.State != System.Data.ConnectionState.Open) connection.Open();
@@ -30,27 +30,29 @@ namespace ConnectionSqlServer.Controllers
             return "No se pudo realizar";
         }
 
-        public string Restore(string ruta, SqlConnectionStringBuilder getConnection)
+        public string Restore(string ruta, string dbName, SqlConnectionStringBuilder getConnection)
         {
             connection = new SqlConnection(getConnection.ConnectionString);
-            string cmfarma = connection.Database.ToString();
+            string cmfarma = dbName;
 
             if (connection.State != System.Data.ConnectionState.Open) connection.Open();
 
             try
             {
-                string sqlStmt2 = string.Format("ALTER DATABASE [" + cmfarma + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+                /*string sqlStmt2 = string.Format("ALTER DATABASE [" + cmfarma + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
                 SqlCommand bu2 = new SqlCommand(sqlStmt2, connection);
-                bu2.ExecuteNonQuery();
+                bu2.ExecuteNonQuery();*/
 
-                string sqlStmt3 = "USE MASTER RESTORE DATABASE [" + cmfarma + "] FROM DISK='" + ruta + "'WITH REPLACE;";
+                string sqlStmt3 = "USE MASTER RESTORE DATABASE [" + cmfarma + "] FROM DISK='" + ruta + "' WITH REPLACE;";
                 SqlCommand bu3 = new SqlCommand(sqlStmt3, connection);
                 bu3.ExecuteNonQuery();
 
-                string sqlStmt4 = string.Format("ALTER DATABASE [" + cmfarma + "] SET MULTI_USER");
+                /*string sqlStmt4 = string.Format("ALTER DATABASE [" + cmfarma + "] SET MULTI_USER");
                 SqlCommand bu4 = new SqlCommand(sqlStmt4, connection);
-                bu4.ExecuteNonQuery();
+                bu4.ExecuteNonQuery();*/
+                
                 connection.Close();
+                
                 return "Restauración de la base de datos realizada con éxito";
             }
             catch (Exception ex)

@@ -35,7 +35,7 @@ namespace ConnectionSqlServer
         private void btnBuscarBack_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "SQL Server Databases backup files|*.back";
+            dlg.Filter = "SQL Server Databases backup files|*.bak";
             dlg.Title = "Database restore";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
@@ -46,7 +46,7 @@ namespace ConnectionSqlServer
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
             backupController = new BackupController();
-            string result = backupController.Restore(txtRuta.Text, builder);
+            string result = backupController.Restore(txtRutaRestore.Text, txtDbNameRestore.Text, builder);
             MessageBox.Show(result);
         }
     }

@@ -74,7 +74,6 @@ namespace ConnectionSqlServer
                     MessageBox.Show("Conexion establecida");
                     Dashboard dashboard = new Dashboard(builder);
                     dashboard.Show();
-                    this.Hide();
                 }
                 catch (Exception ex)
                 {
